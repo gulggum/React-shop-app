@@ -5,13 +5,14 @@ const StyleButton = styled.button`
   padding: 10px 5px;
   border-radius: 5px;
   &:hover {
-    background-color: aliceblue;
+    background-color: orange;
   }
+  color: ${(props) => props.theme.text};
 `;
 
-const IconButton = ({ iconName }) => {
+const IconButton = ({ iconName, onClick }) => {
   return (
-    <StyleButton>
+    <StyleButton onClick={onClick}>
       <FontAwesomeIcon icon={iconName} size="lg" />
     </StyleButton>
   );

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Home from "./pages/Home";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { useRecoilValue } from "recoil";
+import { themeState } from "./recoil/themeAtom";
 
 const GlobalStyle = createGlobalStyle`
  /* 기본 박스 사이징 */
@@ -59,11 +61,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const lightTheme = {
+  bg: "#fff",
+  text: "#222",
+};
+const darkTheme = {
+  bg: "#222",
+  text: "#fff",
+};
+
 function App() {
+  const theme = useRecoilValue(themeState);
   return (
     <>
-      <GlobalStyle />
-      <Home />
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyle />
+        <Home />
+      </ThemeProvider>
     </>
   );
 }
