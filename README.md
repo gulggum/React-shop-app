@@ -17,6 +17,7 @@
 
 ## 프로젝트 폴더/파일 구조
 
+```plaintext
 react-shop/
 ├─ public/
 ├─ src/
@@ -32,3 +33,4 @@ react-shop/
 │ └─ main.jsx
 ├─ package.json
 └─ vite.config.js
+```
