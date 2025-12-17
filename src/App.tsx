@@ -1,8 +1,28 @@
-import { useState } from "react";
 import Home from "./pages/Home";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { useRecoilValue } from "recoil";
-import { themeState } from "./recoil/themeAtom";
+import HeaderArea from "./components/Header";
+import { useThemeStore } from "./state/theme.store";
+import SideNavBar from "./components/SideNavBar";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/router";
+
+function App() {
+  const { theme } = useThemeStore();
+
+  return (
+    <>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <HeaderArea />
+          <SideNavBar />
+          <Home />
+          <AppRouter />
+        </ThemeProvider>
+      </BrowserRouter>
+    </>
+  );
+}
 
 const GlobalStyle = createGlobalStyle`
  /* 기본 박스 사이징 */
@@ -20,10 +40,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f8f8;
-    color: #222;
-    line-height: 1.5;
-  min-height: 100vh;      
+    background-color: ${(props) => props.theme.bg};
+    color: ${(props) => props.theme.text.title};
+    line-height:1.5;
+    height  : 100%;
+    position: relative;
+
 
   }
   #root{
@@ -60,26 +82,5 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 `;
-
-const lightTheme = {
-  bg: "#fff",
-  text: "#222",
-};
-const darkTheme = {
-  bg: "#222",
-  text: "#fff",
-};
-
-function App() {
-  const theme = useRecoilValue(themeState);
-  return (
-    <>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyle />
-        <Home />
-      </ThemeProvider>
-    </>
-  );
-}
 
 export default App;
