@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const HeaderArea = () => {
   const { toggleTheme, isDark } = useThemeStore();
   const { toggle } = useSideNavStore();
-  const [showInput, setShowInput] = useState(true);
+  const [showInput, setShowInput] = useState(false);
 
   const onHandleInput = () => {
     setShowInput((prev) => !prev);
@@ -24,6 +24,7 @@ const HeaderArea = () => {
 
   return (
     <HeaderContainer>
+      {/* header 왼쪽지역 */}
       <NavLeftArea>
         <Mobile_NavButton>
           <IconButton onClick={toggle} iconName={faBars} />
@@ -37,7 +38,9 @@ const HeaderArea = () => {
           <Li>디지털</Li>
         </MenuNav>
       </NavLeftArea>
+      {/* header 중앙 위치맞추기용 */}
       <NavCenterArea></NavCenterArea>
+      {/* header 오른쪽 지역 */}
       <NavRightArea>
         <IconButton iconName={isDark ? faSun : faMoon} onClick={toggleTheme} />
         <SearchArea>
@@ -51,11 +54,12 @@ const HeaderArea = () => {
         </SearchArea>
         <IconButton iconName={faBagShopping} />
       </NavRightArea>
+      {/* 모바일버전 검색창 */}
       {showInput && (
         <Mobile_SearchInput
           type="text"
           placeholder="검색"
-          showInput={showInput}
+          $showInput={showInput}
         />
       )}
     </HeaderContainer>
@@ -131,14 +135,12 @@ const Mobile_NavButton = styled.div`
     display: none;
   }
 `;
-const Mobile_SearchButton = styled.button`
+const Mobile_SearchButton = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
 `;
-const Mobile_SearchInput = styled.input.withConfig({
-  shouldForwardProp: (prop) => prop !== "showInput",
-})<{ showInput: boolean }>`
+const Mobile_SearchInput = styled.input<{ $showInput: boolean }>`
   display: none;
   position: absolute;
   width: 100%;

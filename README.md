@@ -6,6 +6,15 @@
 
 React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 
+## 사용 기술
+
+- React 18
+- Vite
+- TypeScript
+- Styled-components
+- Zustand (상태 관리 예정)
+- FontAwesome
+
 ## 현재 구현 기능
 
 - **헤더**
@@ -21,14 +30,9 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 
   - FontAwesome 아이콘과 클릭 이벤트 전달 가능
 
-## 사용 기술
+## 트러블 슈팅 기록
 
-- React 18
-- Vite
-- TypeScript
-- Styled-components
-- Zustand (상태 관리 예정)
-- FontAwesome
+- [styled-components custom props DOM 경고 해결](https://velog.io/@gulggum/%EC%97%90%EB%9F%AC%EC%9D%BC%EA%B8%B0-styled-components-%EC%BB%A4%EC%8A%A4%ED%85%80-props%EA%B0%80-DOM%EC%9C%BC%EB%A1%9C-%EC%A0%84%EB%8B%AC%EB%90%98%EC%96%B4-%EB%B0%9C%EC%83%9D%ED%95%9C-React-%EA%B2%BD%EA%B3%A0)
 
 ## 프로젝트 폴더/파일 구조
 

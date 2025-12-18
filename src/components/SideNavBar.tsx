@@ -9,8 +9,8 @@ const SideNavBar = () => {
 
   return (
     <>
-      {isOpen && <Overlay onClick={close} isOpen={isOpen} />}
-      <SideBar isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+      {isOpen && <Overlay onClick={close} $isOpen={isOpen} />}
+      <SideBar $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
         <ul>
           {productData.map((item: string, index: number) => (
             <Li key={index}>{item}</Li>
@@ -21,19 +21,17 @@ const SideNavBar = () => {
   );
 };
 
-const Overlay = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "isOpen",
-})<{ isOpen: boolean }>`
+const Overlay = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   z-index: 1000;
-  opacity: ${(props) => (props.isOpen ? 1 : 0)};
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   transition: transform 0.3s ease;
 `;
-const SideBar = styled.div<{ isOpen: boolean }>`
+const SideBar = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +41,7 @@ const SideBar = styled.div<{ isOpen: boolean }>`
   padding: 2rem 1rem;
   background-color: ${(props) => props.theme.bg};
   transform: ${(props) =>
-    props.isOpen ? "translateX(0)" : "translateX(-100%)"};
+    props.$isOpen ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.4s ease;
   z-index: 2000;
 `;

@@ -1,10 +1,9 @@
 import Home from "./pages/Home";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import HeaderArea from "./components/Header";
 import { useThemeStore } from "./state/theme.store";
-import SideNavBar from "./components/SideNavBar";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/router";
+import MainLayout from "./pages/MainLayout";
 
 function App() {
   const { theme } = useThemeStore();
@@ -14,10 +13,8 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <HeaderArea />
-          <SideNavBar />
-          <Home />
           <AppRouter />
+          <MainLayout />
         </ThemeProvider>
       </BrowserRouter>
     </>
