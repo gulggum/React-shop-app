@@ -2,7 +2,7 @@ import fashionImg from "../assets/img/carousel/img_shop_fashion.jpeg";
 import digitalImg from "../assets/img/carousel/img_shop_digital.jpeg";
 import groceryImg from "../assets/img/carousel/img_shop_grocery.jpeg";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -31,11 +31,18 @@ const items = [
 ];
 
 interface SliderProps {
-  currentSlider: number;
+  $currentSlider: number;
 }
 
 const Slider = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlider((prev) => (prev + 1) % items.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlider((prev) => (prev + 1) % items.length);
@@ -46,7 +53,7 @@ const Slider = () => {
   };
   return (
     <SliderContainer>
-      <SliderWrapper currentSlider={currentSlider}>
+      <SliderWrapper $currentSlider={currentSlider}>
         {items.map((item) => (
           <Slide key={item.title}>
             <Slide_image src={item.img} alt={item.title} />
@@ -72,7 +79,8 @@ const SliderContainer = styled.div`
   width: 100vw;
   position: absolute;
   overflow: hidden;
-  height: 40%;
+  height: 25%;
+  left: 0;
   font-size: 2rem;
   @media (max-width: 768px) {
     height: 200px;
@@ -83,7 +91,7 @@ const SliderWrapper = styled.div<SliderProps>`
   width: 100%;
   height: 100%;
   display: flex;
-  transform: translateX(${(props) => -props.currentSlider * 100}%);
+  transform: translateX(${(props) => -props.$currentSlider * 100}%);
   transition: transform 0.5s ease-in-out;
   @media (max-width: 768px) {
     height: 250px;

@@ -14,7 +14,6 @@ function App() {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <AppRouter />
-          <MainLayout />
         </ThemeProvider>
       </BrowserRouter>
     </>
