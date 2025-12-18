@@ -42,14 +42,16 @@ react-shop/
 ├─ src/
 │ ├─ assets/          # 이미지, 아이콘 등
 │ ├─ components/      # 재사용 가능한 컴포넌트
-│ │ ├─ Header/        # 헤더, 테마 버튼 등
-│ │ ├─ Sidebar/       # 사이드바 메뉴
+│ │ ├─ Header         # 헤더, 테마 버튼 등
+│ │ ├─ Sidebar        # 사이드바 메뉴
 │ │ └─ Button/        # 아이콘 버튼 등
 │ ├─ pages/           # 페이지 단위 컴포넌트
 │ │ └─ Home.tsx
 │ ├─ state/           # Zustand 전역 상태 관리
 │ │ ├─ sidebar.store.ts
 │ │ └─ theme.store.ts
+│ ├─ utils/           # 재사용 함수, 데이터 가공 로직
+│ │ ├─ getCategories.ts
 │ ├─ App.tsx
 │ └─ main.tsx
 ├─ package.json

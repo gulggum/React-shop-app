@@ -1,4 +1,17 @@
-export const fetchProducts = async () => {
+export interface Product {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+  title: string;
+}
+
+export const fetchProducts = async (): Promise<Product[]> => {
   try {
     const res = await fetch("https://fakestoreapi.com/products");
     if (!res) throw new Error("응답이 정상적이지 않습니다.");

@@ -1,12 +1,20 @@
-import { useEffect } from "react";
-import styled from "styled-components";
-import { fetchProducts } from "../api/products";
+import { fetchProducts, Product } from "../api/fetchProducts";
+import { useQuery } from "@tanstack/react-query";
+
+interface CategoryTypes {
+  category: string;
+}
 
 const Home = () => {
-  useEffect(() => {
-    fetchProducts();
-    console.log(fetchProducts());
-  }, []);
+  const {
+    data: products,
+    isLoading,
+    isError,
+    error,
+  } = useQuery<Product[]>({ queryKey: ["products"], queryFn: fetchProducts });
+
+  if (isLoading) return <div>로딩중...</div>;
+  if (isError) return <div>에러 발생 :{error.message}</div>;
   return (
     <>
       <h1>Home Page</h1>

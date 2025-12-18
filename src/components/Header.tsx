@@ -12,11 +12,20 @@ import { useSideNavStore } from "../state/sidebar.store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts, Product } from "../api/fetchProducts";
+import getCategories from "../utils/getCategories";
 
 const HeaderArea = () => {
   const { toggleTheme, isDark } = useThemeStore();
   const { toggle } = useSideNavStore();
   const [showInput, setShowInput] = useState(false);
+  const { data: products } = useQuery<Product[]>({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+
+  const categories = products ? getCategories(products) : [];
 
   const onHandleInput = () => {
     setShowInput((prev) => !prev);
@@ -33,9 +42,11 @@ const HeaderArea = () => {
           <Logo>React Shop</Logo>
         </Link>
         <MenuNav>
-          <Li>패션</Li>
-          <Li>악세사리</Li>
-          <Li>디지털</Li>
+          {categories.map((category) => (
+            <Li key={category}>
+              <StyleLink to={category}>{category}</StyleLink>
+            </Li>
+          ))}
         </MenuNav>
       </NavLeftArea>
       {/* header 중앙 위치맞추기용 */}
@@ -71,6 +82,7 @@ const HeaderContainer = styled.div`
   top: 0;
   display: grid;
   grid-template-columns: 2fr auto 1fr;
+
   align-items: center;
   height: 56px;
   z-index: 100;
@@ -90,17 +102,31 @@ const Logo = styled.span`
 `;
 
 const MenuNav = styled.ul`
+  margin-left: 1rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   @media (max-width: 768px) {
     display: none;
   }
 `;
 
 const Li = styled.li`
-  padding: 5px;
+  border-radius: 5px;
+  padding: 5px 8px;
   font-weight: 700;
   font-size: 1rem;
+  &:hover {
+    background-color: ${(props) => props.theme.hover};
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+`;
+
+const StyleLink = styled(Link)`
+  display: block;
+  text-transform: capitalize;
+  font-weight: 500;
 `;
 
 const NavCenterArea = styled.div``;

@@ -1,19 +1,33 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useSideNavStore } from "../state/sidebar.store";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts } from "../api/fetchProducts";
+import getCategories from "../utils/getCategories";
+import { Link } from "react-router";
 
 const productData = ["패션", "악세사리", "디지털"];
 
 const SideNavBar = () => {
   const { isOpen, close } = useSideNavStore();
+  const { data: products } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+
+  const categories = products ? getCategories(products) : [];
 
   return (
     <>
       {isOpen && <Overlay onClick={close} $isOpen={isOpen} />}
-      <SideBar $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
-        <ul>
-          {productData.map((item: string, index: number) => (
-            <Li key={index}>{item}</Li>
+      <SideBar $isOpen={isOpen}>
+        <ul onClick={(e) => e.stopPropagation()}>
+          {categories.map((category) => (
+            <Li key={category}>
+              <StyleLink to={category} onClick={() => close()}>
+                {category}
+              </StyleLink>
+            </Li>
           ))}
         </ul>
       </SideBar>
@@ -46,13 +60,20 @@ const SideBar = styled.div<{ $isOpen: boolean }>`
   z-index: 2000;
 `;
 const Li = styled.li`
-  padding: 1rem;
   border-radius: 5px;
   &:hover {
     background-color: ${(props) => props.theme.hover};
     cursor: pointer;
     transition: all 0.4s ease;
   }
+`;
+
+const StyleLink = styled(Link)`
+  display: block;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.2rem;
 `;
 
 export default SideNavBar;
