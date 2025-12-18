@@ -45,7 +45,7 @@ const Overlay = styled.div<{ $isOpen: boolean }>`
   opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   transition: transform 0.3s ease;
 `;
-const SideBar = styled.div<{ $isOpen: boolean }>`
+const SideBar = styled.aside<{ $isOpen: boolean }>`
   position: absolute;
   top: 0;
   left: 0;

@@ -3,7 +3,6 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { useThemeStore } from "./state/theme.store";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/router";
-import MainLayout from "./pages/MainLayout";
 
 function App() {
   const { theme } = useThemeStore();
@@ -21,62 +20,67 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
- /* 기본 박스 사이징 */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  /* 기본 마진/패딩 제거 */
-  body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
-    margin: 0;
-    padding: 0;
-  }
-
-  
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {    
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: ${(props) => props.theme.bg};
     color: ${(props) => props.theme.text.title};
-    line-height:1.5;
-    height  : 100%;
+	line-height: 1.5;
+   font-size:1rem;
     position: relative;
-    font-size:1rem
-
-
-  }
-  #root{
-    width: 100%; /* 모바일 기준크기 */
-    max-width: 1200px; /* PC 최대크기 */
     margin: 0 auto;
-    padding: 0 1px;
-  }
-
-  ul, ol {
-    list-style: none;
-  }
-
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
   a {
     text-decoration: none;
     color: inherit;
   }
-
   button {
     background: none;
     border: none;
     cursor: pointer;
     font-family: inherit;
   }
-
-  input, button, textarea, select {
+    input, button, textarea, select {
     font: inherit;
-  }
-
-  /* flex/grid 중앙 정렬 helper */
-  .flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 

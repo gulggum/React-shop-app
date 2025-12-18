@@ -8,13 +8,16 @@ const MainLayout = () => {
     <>
       <HeaderArea />
       <SideNavBar />
-      <Outlet />
-      <Container></Container>
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 };
-const Container = styled.div`
-  height: 100vh;
+
+const Container = styled.main`
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 export default MainLayout;

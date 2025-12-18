@@ -79,7 +79,7 @@ const SliderContainer = styled.div`
   width: 100vw;
   position: absolute;
   overflow: hidden;
-  height: 25%;
+  height: 50%;
   left: 0;
   font-size: 2rem;
   @media (max-width: 768px) {
@@ -116,10 +116,8 @@ const Slide_info = styled.div`
   padding: 100px;
   transform: translate(0, -50%);
   @media (max-width: 768px) {
-    height: 200px;
-    top: 50%;
     transform: translate(0, -50%);
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 50px;
   }
 `;

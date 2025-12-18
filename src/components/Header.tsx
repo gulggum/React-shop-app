@@ -33,62 +33,74 @@ const HeaderArea = () => {
 
   return (
     <HeaderContainer>
-      {/* header 왼쪽지역 */}
-      <NavLeftArea>
-        <Mobile_NavButton>
-          <IconButton onClick={toggle} iconName={faBars} />
-        </Mobile_NavButton>
-        <Link to={"/"}>
-          <Logo>React Shop</Logo>
-        </Link>
-        <MenuNav>
-          {categories.map((category) => (
-            <Li key={category}>
-              <StyleLink to={category}>{category}</StyleLink>
-            </Li>
-          ))}
-        </MenuNav>
-      </NavLeftArea>
-      {/* header 중앙 위치맞추기용 */}
-      <NavCenterArea></NavCenterArea>
-      {/* header 오른쪽 지역 */}
-      <NavRightArea>
-        <IconButton iconName={isDark ? faSun : faMoon} onClick={toggleTheme} />
-        <SearchArea>
-          <SearchInput type="text" placeholder="검색" />
-          <Mobile_SearchButton>
-            <IconButton iconName={faMagnifyingGlass} onClick={onHandleInput} />
-          </Mobile_SearchButton>
-          <SearchIcon aria-label="검색">
-            <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
-          </SearchIcon>
-        </SearchArea>
-        <IconButton iconName={faBagShopping} />
-      </NavRightArea>
-      {/* 모바일버전 검색창 */}
-      {showInput && (
-        <Mobile_SearchInput
-          type="text"
-          placeholder="검색"
-          $showInput={showInput}
-        />
-      )}
+      <HeaderInner>
+        {/* header 왼쪽지역 */}
+        <NavLeftArea>
+          <Mobile_NavButton>
+            <IconButton onClick={toggle} iconName={faBars} />
+          </Mobile_NavButton>
+          <Link to={"/"}>
+            <Logo>React Shop</Logo>
+          </Link>
+          <MenuNav>
+            {categories.map((category) => (
+              <Li key={category}>
+                <StyleLink to={category}>{category}</StyleLink>
+              </Li>
+            ))}
+          </MenuNav>
+        </NavLeftArea>
+        {/* header 중앙 위치맞추기용 */}
+        <NavCenterArea></NavCenterArea>
+        {/* header 오른쪽 지역 */}
+        <NavRightArea>
+          <IconButton
+            iconName={isDark ? faSun : faMoon}
+            onClick={toggleTheme}
+          />
+          <SearchArea>
+            <SearchInput type="text" placeholder="검색" />
+            <Mobile_SearchButton>
+              <IconButton
+                iconName={faMagnifyingGlass}
+                onClick={onHandleInput}
+              />
+            </Mobile_SearchButton>
+            <SearchIcon aria-label="검색">
+              <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
+            </SearchIcon>
+          </SearchArea>
+          <IconButton iconName={faBagShopping} />
+        </NavRightArea>
+        {/* 모바일버전 검색창 */}
+        {showInput && (
+          <Mobile_SearchInput
+            type="text"
+            placeholder="검색"
+            $showInput={showInput}
+          />
+        )}
+      </HeaderInner>
     </HeaderContainer>
   );
 };
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
+  width: 100%;
   position: sticky;
   top: 0;
-  display: grid;
-  grid-template-columns: 2fr auto 1fr;
-
-  align-items: center;
-  height: 56px;
   z-index: 100;
   background-color: ${(props) => props.theme.bg};
   color: ${(props) => props.theme.text.title};
-  padding: 0px 10px;
+  padding: 0 5px;
+`;
+const HeaderInner = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr auto 1fr;
+  align-items: center;
+  height: 56px;
 `;
 const NavLeftArea = styled.div`
   display: flex;
