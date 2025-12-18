@@ -97,7 +97,7 @@ const NavLeftArea = styled.div`
 const Logo = styled.span`
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   color: ${(props) => props.theme.text.title};
 `;
 
@@ -175,7 +175,7 @@ const Mobile_SearchInput = styled.input<{ $showInput: boolean }>`
   height: 40px;
   padding-left: 20px;
   border: none;
-  background-color: orange;
+  background-color: ${(props) => props.theme.hover};
   transition: transform 0.4s ease;
   @media (max-width: 768px) {
     display: flex;

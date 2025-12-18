@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     line-height:1.5;
     height  : 100%;
     position: relative;
+    font-size:1rem
 
 
   }
