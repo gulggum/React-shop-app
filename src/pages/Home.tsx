@@ -1,6 +1,7 @@
 import { fetchProducts, Product } from "../api/fetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import Slider from "../components/Slider";
+import styled from "styled-components";
 
 interface CategoryTypes {
   category: string;
@@ -18,9 +19,14 @@ const Home = () => {
   if (isError) return <div>에러 발생 :{error.message}</div>;
   return (
     <>
-      <Slider />
+      <Container>
+        <Slider />
+      </Container>
     </>
   );
 };
+const Container = styled.div`
+  height: 100vh;
+`;
 
 export default Home;
