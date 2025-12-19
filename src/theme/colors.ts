@@ -1,5 +1,6 @@
 export interface ThemeColorTypes {
   bg: string;
+  itemBg: string;
   text: {
     title: string;
     sub: string;
@@ -10,6 +11,7 @@ export interface ThemeColorTypes {
 
 export const lightTheme = {
   bg: "#F9F8F6",
+  itemBg: "#F2F2F2",
   text: {
     title: "#222",
     sub: "#555",
@@ -19,6 +21,7 @@ export const lightTheme = {
 };
 export const darkTheme = {
   bg: "#1B211A",
+  itemBg: "#555",
   text: {
     title: "#F9F8F6",
     sub: "#cfcfcf",

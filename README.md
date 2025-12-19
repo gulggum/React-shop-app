@@ -30,6 +30,27 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 
   - FontAwesome 아이콘과 클릭 이벤트 전달 가능
 
+- **카테고리 추출 및 정규화**
+
+  - 전체 상품 데이터를 받아 카테고리 배열 생성
+  - "men's clothing"과 "women's clothing"을 "clothing"으로 통합
+  - 중복 제거 후 고유 카테고리 반환
+
+- **카테고리별 상품 페이지**
+
+  - 의류(Fashion), 쥬얼리(Jewelery), 전자(Electronic) 페이지 구현
+  - 각 페이지에서 카테고리별 상품 리스트 불러오기
+
+- **ProductList 컴포넌트**
+
+  - 공통 컴포넌트로 재사용 가능
+  - 카테고리와 출력 제한(limit),(category) prop을 받아 상품 목록 렌더링
+  - 반응형 Grid 레이아웃 적용
+  - 이미지 중앙 정렬 및 hover 확대 효과
+
+- **UI/UX**
+  - 반응형 그리드: 화면 크기에 따라 칸 수 자동 조절
+
 ## 트러블 슈팅 기록
 
 - [styled-components custom props DOM 경고 해결](https://velog.io/@gulggum/%EC%97%90%EB%9F%AC%EC%9D%BC%EA%B8%B0-styled-components-%EC%BB%A4%EC%8A%A4%ED%85%80-props%EA%B0%80-DOM%EC%9C%BC%EB%A1%9C-%EC%A0%84%EB%8B%AC%EB%90%98%EC%96%B4-%EB%B0%9C%EC%83%9D%ED%95%9C-React-%EA%B2%BD%EA%B3%A0)

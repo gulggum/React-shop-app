@@ -82,9 +82,9 @@ const SliderContainer = styled.div`
   height: 50%;
   left: 0;
   font-size: 2rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     height: 200px;
-    font-size: 1rem;
+    font-size: 1.8rem;
   }
 `;
 const SliderWrapper = styled.div<SliderProps>`
@@ -93,9 +93,6 @@ const SliderWrapper = styled.div<SliderProps>`
   display: flex;
   transform: translateX(${(props) => -props.$currentSlider * 100}%);
   transition: transform 0.5s ease-in-out;
-  @media (max-width: 768px) {
-    height: 250px;
-  }
 `;
 
 const Slide = styled.div`
@@ -115,21 +112,22 @@ const Slide_info = styled.div`
   top: 50%;
   padding: 100px;
   transform: translate(0, -50%);
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     transform: translate(0, -50%);
-    font-size: 0.8rem;
-    padding: 50px;
+    font-size: 1rem;
+    padding: 80px;
   }
 `;
 
 const Slide_title = styled.h2`
   letter-spacing: 1px;
-  font-size: 2em;
+  font-size: 1.5em;
+  font-weight: 500;
 `;
 const Slide_text = styled.p`
   margin-bottom: 10px;
   font-weight: 500;
-  font-size: 1em;
+  font-size: 0.9em;
 `;
 const GoButton = styled.button`
   padding: 0.8em 1.5em;

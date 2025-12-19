@@ -1,3 +1,5 @@
+const FAKER_URL = "https://fakestoreapi.com/products";
+
 export interface Product {
   category: string;
   description: string;
@@ -13,7 +15,7 @@ export interface Product {
 
 export const fetchProducts = async (): Promise<Product[]> => {
   try {
-    const res = await fetch("https://fakestoreapi.com/products");
+    const res = await fetch(FAKER_URL);
     if (!res) throw new Error("응답이 정상적이지 않습니다.");
     const products = await res.json();
     return products;

@@ -6,8 +6,6 @@ import { fetchProducts } from "../api/fetchProducts";
 import getCategories from "../utils/getCategories";
 import { Link } from "react-router";
 
-const productData = ["패션", "악세사리", "디지털"];
-
 const SideNavBar = () => {
   const { isOpen, close } = useSideNavStore();
   const { data: products } = useQuery({
@@ -46,12 +44,11 @@ const Overlay = styled.div<{ $isOpen: boolean }>`
   transition: transform 0.3s ease;
 `;
 const SideBar = styled.aside<{ $isOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100%;
-
   padding: 2rem 1rem;
   background-color: ${(props) => props.theme.bg};
   transform: ${(props) =>
