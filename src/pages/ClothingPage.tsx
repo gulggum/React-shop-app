@@ -6,7 +6,7 @@ const ClothingPage = () => {
     <>
       <ClothingPageContainer>
         {" "}
-        <PageTitle>Clothing Page</PageTitle>
+        <PageTitle>Clothing</PageTitle>
         <ProductList category="clothing" />
       </ClothingPageContainer>
     </>

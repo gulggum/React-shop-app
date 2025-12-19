@@ -21,7 +21,7 @@ const Home = () => {
         <MainContents>
           {/* 패션 구역 */}
           <CategoryArea>
-            <Title>Fashion</Title>
+            <Title>Clothing</Title>
             <ProductList limit={4} category="clothing" />
           </CategoryArea>
           {/* 악세서리 구역 */}

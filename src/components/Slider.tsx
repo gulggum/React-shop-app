@@ -8,16 +8,19 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import getCategories from "../utils/getCategories";
 
 const items = [
   {
-    name: "fashion",
+    name: "clothing",
     title: "물빠진 청바지!",
     text: "이제 막 도착한 패션 청바지를 구경해 보세요.",
     img: fashionImg,
   },
   {
-    name: "digital",
+    name: "electronics",
     title: "신속한 업무처리!",
     text: "다양한 디지털 상품을 둘러보세요.",
     img: digitalImg,
@@ -60,7 +63,9 @@ const Slider = () => {
             <Slide_info>
               <Slide_title>{item.title}</Slide_title>
               <Slide_text>{item.text}</Slide_text>
-              <GoButton>바로가기 ➔</GoButton>
+              <GoButton>
+                <Link to={`${item.name}`}>바로가기 ➔</Link>
+              </GoButton>
             </Slide_info>
           </Slide>
         ))}

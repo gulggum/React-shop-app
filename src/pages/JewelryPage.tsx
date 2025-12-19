@@ -6,7 +6,7 @@ const JewelryPage = () => {
     <>
       <JewelryPageContainer>
         {" "}
-        <PageTitle>Jewelry Page</PageTitle>
+        <PageTitle>Jewelry</PageTitle>
         <ProductList category="jewelery" />
       </JewelryPageContainer>
     </>

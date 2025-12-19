@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import ProductList from "../components/ProductList";
 
-const DigitalPage = () => {
+const ElectronicsPage = () => {
   return (
     <>
-      <DigitalPageContainer>
+      <ElectronicsPageContainer>
         {" "}
-        <PageTitle>Digital Page</PageTitle>
+        <PageTitle>Electronics</PageTitle>
         <ProductList category="electronics" />
-      </DigitalPageContainer>
+      </ElectronicsPageContainer>
     </>
   );
 };
-const DigitalPageContainer = styled.article`
+const ElectronicsPageContainer = styled.article`
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
@@ -26,4 +26,4 @@ const PageTitle = styled.h2`
   margin-bottom: 1em;
 `;
 
-export default DigitalPage;
+export default ElectronicsPage;
