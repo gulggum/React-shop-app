@@ -12,7 +12,7 @@ const AppRouter = () => {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/:category/:id" element={<ProductDetail />} />
         <Route path="/clothing" element={<ClothingPage />} />
         {/* ┌> Fake Store API 오타  */}
         <Route path="/jewelery" element={<JewelryPage />} />

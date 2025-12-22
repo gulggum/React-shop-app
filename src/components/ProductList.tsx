@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { fetchProducts } from "../api/fetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router";
+import getCategories from "../utils/getCategories";
+import { normalizeCategory } from "../utils/nomalizeCategory";
 
 interface ProductListProps {
   limit?: number;
@@ -22,11 +24,13 @@ const ProductList = ({ category, limit }: ProductListProps) => {
     ? filteredProducts?.slice(0, limit)
     : filteredProducts;
 
+  console.log(filteredProducts);
+
   return (
     <FashionWrapper>
       {displayProducts?.map((product) => (
         <ProductBox key={product.id}>
-          <Link to={`/products/${product.id}`}>
+          <Link to={`/${normalizeCategory(product.category)}/${product.id}`}>
             <ImgWrap>
               <Img src={product.image} alt="" />
             </ImgWrap>

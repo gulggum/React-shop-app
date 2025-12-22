@@ -12,6 +12,7 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 - Vite
 - TypeScript
 - React Router DOM v7
+- React-query
 - Styled-components
 - Zustand (상태 관리 예정)
 - FontAwesome

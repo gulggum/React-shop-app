@@ -16,7 +16,7 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = () => {
-  const { id } = useParams();
+  const { id, category } = useParams();
   const queryClient = useQueryClient();
 
   if (!id) return null;

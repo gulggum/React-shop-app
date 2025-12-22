@@ -25,9 +25,10 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 
   if (productTitle) displayNames.push(productTitle);
 
+  console.log("😍location=", location);
   return (
     <Nav>
-      <Link to={"/"}>Home</Link>
+      <LinkStyle to={"/"}>Home</LinkStyle>
       {displayNames.map((name, index) => (
         <span>
           <FontAwesomeIcon
@@ -38,9 +39,9 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
           {index === displayNames.length - 1 ? (
             <span>{name}</span>
           ) : (
-            <Link to={`/${pathNames.slice(0, index + 1).join("/")}`}>
+            <LinkStyle to={`/${pathNames.slice(0, index + 1).join("/")}`}>
               {name}
-            </Link>
+            </LinkStyle>
           )}
         </span>
       ))}
@@ -56,6 +57,11 @@ const Nav = styled.nav`
   padding-left: 1rem;
   box-sizing: border-box;
   font-size: 13px;
+`;
+const LinkStyle = styled(Link)`
+  &:hover {
+    font-weight: 600;
+  }
 `;
 
 export default Breadcrumb;
