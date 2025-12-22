@@ -55,7 +55,7 @@ const HeaderArea = () => {
         {/* header 오른쪽 지역 */}
         <NavRightArea>
           <IconButton
-            iconName={isDark ? faSun : faMoon}
+            iconName={isDark ? faMoon : faSun}
             onClick={toggleTheme}
           />
           <SearchArea>

@@ -54,6 +54,8 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 ## 트러블 슈팅 기록
 
 - [styled-components custom props DOM 경고 해결](https://velog.io/@gulggum/%EC%97%90%EB%9F%AC%EC%9D%BC%EA%B8%B0-styled-components-%EC%BB%A4%EC%8A%A4%ED%85%80-props%EA%B0%80-DOM%EC%9C%BC%EB%A1%9C-%EC%A0%84%EB%8B%AC%EB%90%98%EC%96%B4-%EB%B0%9C%EC%83%9D%ED%95%9C-React-%EA%B2%BD%EA%B3%A0)
+- [React Query initialData 활용: 디테일 페이지 즉시 렌더링](https://velog.io/@gulggum/React-Query-initialData%EB%A1%9C-%EB%94%94%ED%85%8C%EC%9D%BC-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A6%89%EC%8B%9C-%EB%A0%8C%EB%8D%94%EB%A7%81%ED%95%98%EA%B8%B0-%EC%BA%90%EC%8B%9C-%ED%99%9C%EC%9A%A9-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+  리스트 캐시 데이터를 임시로 보여주고, 백그라운드에서 디테일 API fetch로 최신화해 UX 개선
 
 ## 프로젝트 폴더/파일 구조
 

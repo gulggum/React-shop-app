@@ -23,3 +23,14 @@ export const fetchProducts = async (): Promise<Product[]> => {
     throw new Error(`상품데이터를 불러오지 못했습니다."${error}`);
   }
 };
+
+export const fetchSingleProduct = async (id: string) => {
+  try {
+    const res = await fetch(`${FAKER_URL}/${id}`);
+    const product = await res.json();
+    console.log(product);
+    return product;
+  } catch (error) {
+    throw new Error(`상품데이터를 불러오지 못했습니다."${error}`);
+  }
+};

@@ -5,12 +5,14 @@ import JewelryPage from "../pages/JewelryPage";
 import ElectronicsPage from "../pages/ElectronicsPage";
 import MainLayout from "../pages/MainLayout";
 import NotFound from "../pages/NotFound";
+import ProductDetail from "../components/ProductsDetail";
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/clothing" element={<ClothingPage />} />
         {/* ┌> Fake Store API 오타  */}
         <Route path="/jewelery" element={<JewelryPage />} />

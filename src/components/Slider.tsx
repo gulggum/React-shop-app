@@ -64,7 +64,7 @@ const Slider = () => {
               <Slide_title>{item.title}</Slide_title>
               <Slide_text>{item.text}</Slide_text>
               <GoButton>
-                <Link to={`${item.name}`}>바로가기 ➔</Link>
+                <StyleLink to={`${item.name}`}>바로가기 ➔</StyleLink>
               </GoButton>
             </Slide_info>
           </Slide>
@@ -155,6 +155,11 @@ const PrevButton = styled.button`
     color: ${($props) => $props.theme.hover};
   }
   transform: translateY(-50%);
+`;
+//수정하기!!!! 전체선택이안됌
+const StyleLink = styled(Link)`
+  display: block;
+  width: 100%;
 `;
 const NextButton = styled.button`
   color: white;
