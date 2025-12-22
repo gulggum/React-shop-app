@@ -3,17 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Slider from "../components/Slider";
 import styled from "styled-components";
 import ProductList from "../components/ProductList";
-
 const Home = () => {
-  const {
-    data: products,
-    isLoading,
-    isError,
-    error,
-  } = useQuery<Product[]>({ queryKey: ["products"], queryFn: fetchProducts });
-
-  if (isLoading) return <div>로딩중...</div>;
-  if (isError) return <div>에러 발생 :{error.message}</div>;
   return (
     <>
       <Container>

@@ -1,8 +1,9 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import styled from "styled-components";
-import { fetchSingleProduct, Product } from "../api/fetchProducts";
+import { fetchSingleProduct } from "../api/fetchProducts";
 import StartRating from "./StarRating";
+import Breadcrumb from "./Breadcrumb";
 
 interface ProductDetailProps {
   category: string;
@@ -32,6 +33,7 @@ const ProductDetail = () => {
 
   return (
     <DetailContainer>
+      <Breadcrumb productTitle={product?.title} />
       <DetailWrapper>
         <DetailImageBox>
           <Detail_image src={product?.image} alt={product?.title} />
@@ -40,7 +42,9 @@ const ProductDetail = () => {
           <DetailTitle>{product?.title}</DetailTitle>
           <DetailDes>{product?.description}</DetailDes>
           <RatingEl>
-            <StartRating rating={product?.rating.rate} />
+            {product?.rating.rate && (
+              <StartRating rating={product?.rating.rate} />
+            )}
             {product?.rating.rate}
             <span>/ {product?.rating.count} 참여</span>
           </RatingEl>

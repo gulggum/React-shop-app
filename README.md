@@ -11,6 +11,7 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 - React 18
 - Vite
 - TypeScript
+- React Router DOM v7
 - Styled-components
 - Zustand (상태 관리 예정)
 - FontAwesome
@@ -29,6 +30,7 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
   - 상품 상세 정보 + 이미지, 별점 렌더링
 - **UI/UX**
   - 반응형 레이아웃, 모바일 대응
+  - Breadcrumb UI를 적용해 사용자가 현재 위치를 직관적으로 인지할 수 있도록 개선
 
 ## 트러블 슈팅 기록
 

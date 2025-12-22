@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import ProductList from "../components/ProductList";
+import Breadcrumb from "../components/Breadcrumb";
 
 const JewelryPage = () => {
   return (
     <>
       <JewelryPageContainer>
-        {" "}
+        <Breadcrumb />
         <PageTitle>Jewelry</PageTitle>
         <ProductList category="jewelery" />
       </JewelryPageContainer>

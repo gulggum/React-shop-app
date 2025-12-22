@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import ProductList from "../components/ProductList";
+import Breadcrumb from "../components/Breadcrumb";
 
 const ClothingPage = () => {
   return (
     <>
       <ClothingPageContainer>
-        {" "}
+        <Breadcrumb />
         <PageTitle>Clothing</PageTitle>
         <ProductList category="clothing" />
       </ClothingPageContainer>

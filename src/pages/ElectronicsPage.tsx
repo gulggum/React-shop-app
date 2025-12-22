@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import ProductList from "../components/ProductList";
+import Breadcrumb from "../components/Breadcrumb";
 
 const ElectronicsPage = () => {
   return (
     <>
       <ElectronicsPageContainer>
-        {" "}
+        <Breadcrumb />
         <PageTitle>Electronics</PageTitle>
         <ProductList category="electronics" />
       </ElectronicsPageContainer>
