@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { fetchProducts } from "../api/fetchProducts";
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router";
-import getCategories from "../utils/getCategories";
-import { normalizeCategory } from "../utils/nomalizeCategory";
+import { Link } from "react-router";
+import { normalizeCategory } from "../utils/normalizeCategory";
 
 interface ProductListProps {
   limit?: number;
@@ -24,15 +23,13 @@ const ProductList = ({ category, limit }: ProductListProps) => {
     ? filteredProducts?.slice(0, limit)
     : filteredProducts;
 
-  console.log(filteredProducts);
-
   return (
-    <FashionWrapper>
+    <ProductsWrapper>
       {displayProducts?.map((product) => (
         <ProductBox key={product.id}>
           <Link to={`/${normalizeCategory(product.category)}/${product.id}`}>
             <ImgWrap>
-              <Img src={product.image} alt="" />
+              <Img src={product.image} alt={product.title} />
             </ImgWrap>
             <Info>
               <Title>{product.title}</Title>
@@ -41,11 +38,11 @@ const ProductList = ({ category, limit }: ProductListProps) => {
           </Link>
         </ProductBox>
       ))}
-    </FashionWrapper>
+    </ProductsWrapper>
   );
 };
 
-const FashionWrapper = styled.div`
+const ProductsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   align-items: center;
@@ -77,6 +74,7 @@ const ImgWrap = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  height: 240px;
 `;
 const Img = styled.img`
   width: 100%;
@@ -89,7 +87,7 @@ const Info = styled.div`
   flex-direction: column;
   text-align: left;
   justify-content: space-between;
-  height: 120px;
+  height: 100px;
 `;
 const Title = styled.div`
   padding: 5px 10px;

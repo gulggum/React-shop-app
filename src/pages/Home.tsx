@@ -31,15 +31,15 @@ const Home = () => {
 };
 const Container = styled.div`
   max-width: 1200px;
-  height: 100vh;
+  height: auto;
   margin: 0 auto;
 `;
 
 const MainContents = styled.main`
-  padding-top: 550px;
+  padding-top: 560px;
   padding-bottom: 50px;
   @media (max-width: 1024px) {
-    padding-top: 250px;
+    padding-top: 280px;
   }
 `;
 

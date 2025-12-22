@@ -87,12 +87,13 @@ const HeaderArea = () => {
 
 const HeaderContainer = styled.header`
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background-color: ${(props) => props.theme.bg};
   color: ${(props) => props.theme.text.title};
   padding: 0 5px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 `;
 const HeaderInner = styled.div`
   max-width: 1200px;

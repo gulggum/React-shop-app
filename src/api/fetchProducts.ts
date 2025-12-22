@@ -24,7 +24,7 @@ export const fetchProducts = async (): Promise<Product[]> => {
   }
 };
 
-export const fetchSingleProduct = async (id: string) => {
+export const fetchSingleProduct = async (id: string | undefined) => {
   try {
     const res = await fetch(`${FAKER_URL}/${id}`);
     const product = await res.json();

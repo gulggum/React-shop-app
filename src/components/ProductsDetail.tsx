@@ -33,7 +33,6 @@ const ProductDetail = () => {
 
   return (
     <DetailContainer>
-      <Breadcrumb productTitle={product?.title} />
       <DetailWrapper>
         <DetailImageBox>
           <Detail_image src={product?.image} alt={product?.title} />
@@ -63,8 +62,7 @@ const DetailContainer = styled.div`
   max-width: 1200px;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
 `;
 const DetailWrapper = styled.div`
   padding: 20px;

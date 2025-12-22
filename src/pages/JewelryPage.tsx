@@ -6,7 +6,6 @@ const JewelryPage = () => {
   return (
     <>
       <JewelryPageContainer>
-        <Breadcrumb />
         <PageTitle>Jewelry</PageTitle>
         <ProductList category="jewelery" />
       </JewelryPageContainer>

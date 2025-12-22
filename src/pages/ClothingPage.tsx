@@ -6,7 +6,6 @@ const ClothingPage = () => {
   return (
     <>
       <ClothingPageContainer>
-        <Breadcrumb />
         <PageTitle>Clothing</PageTitle>
         <ProductList category="clothing" />
       </ClothingPageContainer>

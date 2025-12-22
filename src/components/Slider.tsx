@@ -81,10 +81,11 @@ const Slider = () => {
 };
 
 const SliderContainer = styled.div`
+  margin-top: 56px;
   width: 100vw;
   position: absolute;
   overflow: hidden;
-  height: 50%;
+  height: 460px;
   left: 0;
   font-size: 2rem;
   @media (max-width: 1024px) {

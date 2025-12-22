@@ -8,7 +8,6 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
-  console.log("productTitle=" + productTitle);
   const location = useLocation();
   const pathNames = location.pathname
     .split("/")
@@ -25,7 +24,6 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 
   if (productTitle) displayNames.push(productTitle);
 
-  console.log("😍location=", location);
   return (
     <Nav>
       <LinkStyle to={"/"}>Home</LinkStyle>
@@ -50,13 +48,15 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 };
 
 const Nav = styled.nav`
-  width: 100%;
+  width: 1200px;
   height: 40px;
   text-align: left;
   line-height: 40px;
-  padding-left: 1rem;
   box-sizing: border-box;
   font-size: 13px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 0 10px;
 `;
 const LinkStyle = styled(Link)`
   &:hover {
