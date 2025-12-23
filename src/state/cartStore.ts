@@ -31,6 +31,9 @@ export const useCartStore = create<CartStore>((set) => ({
       const existingItem = state.items.find(
         (CartItem) => CartItem.id === item.id
       );
+      console.log("item.id:", item.id); // 방금 클릭한 아이템
+      console.log("state.items:", state.items); // 현재 장바구니 배열
+
       // 이미 있다면 수량만 증가
       if (existingItem) {
         return {

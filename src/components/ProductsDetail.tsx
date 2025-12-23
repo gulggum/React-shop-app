@@ -1,8 +1,9 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
 import { fetchSingleProduct } from "../api/fetchProducts";
 import StartRating from "./StarRating";
+import { useCartStore } from "../state/cartStore";
 
 interface ProductDetailProps {
   category: string;
@@ -15,7 +16,9 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = () => {
-  const { id, category } = useParams();
+  const navigate = useNavigate();
+  const addCart = useCartStore((state) => state.addCart);
+  const { id } = useParams();
   const queryClient = useQueryClient();
 
   if (!id) return null;
@@ -48,8 +51,15 @@ const ProductDetail = () => {
           </RatingEl>
           <DetailPrice>${product?.price}</DetailPrice>
           <CartNavButton>
-            <AddCart>장바구니에 담기</AddCart>
-            <GoToCart>장바구니로 이동</GoToCart>
+            <AddCart
+              onClick={() => product && addCart(product)}
+              disabled={!product}
+            >
+              장바구니에 담기
+            </AddCart>
+            <GoToCart onClick={() => navigate("/cart")}>
+              장바구니로 이동
+            </GoToCart>
           </CartNavButton>
         </DetailInfoBox>
       </DetailWrapper>

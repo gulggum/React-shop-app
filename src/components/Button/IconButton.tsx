@@ -5,12 +5,33 @@ import { useThemeStore } from "../../state/theme.store";
 interface IconButtonProps {
   iconName: IconProp;
   onClick?: () => void;
+  count?: number;
 }
 
-const IconButton = ({ iconName, onClick }: IconButtonProps) => {
+const IconButton = ({ iconName, onClick, count }: IconButtonProps) => {
   return (
     <StyleButton onClick={onClick}>
-      <FontAwesomeIcon icon={iconName} size="lg" />
+      <FontAwesomeIcon
+        icon={iconName}
+        size="lg"
+        style={{ position: "relative" }}
+      />
+      {count && count > 0 && (
+        <span
+          style={{
+            position: "absolute",
+            top: "-3px",
+            right: "11px",
+            background: "red",
+            color: "white",
+            borderRadius: "50%",
+            padding: "2px 7px",
+            fontSize: "12px",
+          }}
+        >
+          {count}
+        </span>
+      )}
     </StyleButton>
   );
 };

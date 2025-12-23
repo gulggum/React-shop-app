@@ -11,12 +11,15 @@ import { useThemeStore } from "../state/theme.store";
 import { useSideNavStore } from "../state/sidebar.store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts, Product } from "../api/fetchProducts";
 import getCategories from "../utils/getCategories";
+import { useCartStore } from "../state/cartStore";
 
 const HeaderArea = () => {
+  const items = useCartStore((state) => state.items);
+  const navigate = useNavigate(); //이동함수
   const { toggleTheme, isDark } = useThemeStore();
   const { toggle } = useSideNavStore();
   const [showInput, setShowInput] = useState(false);
@@ -30,6 +33,8 @@ const HeaderArea = () => {
   const onHandleInput = () => {
     setShowInput((prev) => !prev);
   };
+
+  const onCart = () => {};
 
   return (
     <HeaderContainer>
@@ -70,7 +75,13 @@ const HeaderArea = () => {
               <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
             </SearchIcon>
           </SearchArea>
-          <IconButton iconName={faBagShopping} />
+          <IconButton
+            iconName={faBagShopping}
+            onClick={() => {
+              navigate("/cart");
+            }}
+            count={items.length}
+          />
         </NavRightArea>
         {/* 모바일버전 검색창 */}
         {showInput && (
