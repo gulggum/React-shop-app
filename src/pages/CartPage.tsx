@@ -8,6 +8,10 @@ const CartPage = () => {
   const removeItem = useCartStore((state) => state.removeItem);
   const increase = useCartStore((State) => State.increase);
   const decrease = useCartStore((State) => State.decrease);
+  const totalPrice = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <CartContainer>
@@ -42,6 +46,7 @@ const CartPage = () => {
                 </ControlButtons>
               </CartItem>
             ))}
+            <TotalPrice>Total Price: {totalPrice}</TotalPrice>
           </ul>
         )}
       </CartWrap>
@@ -113,4 +118,17 @@ const ControlButtons = styled.div`
 
 const DeleteBtn = styled.button;
 const BuyNow = styled.button;
+
+const TotalPrice = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  background-color: ${(props) => props.theme.itemBg};
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 500;
+  padding-right: 20px;
+`;
 export default CartPage;
