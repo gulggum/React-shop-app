@@ -47,7 +47,7 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 };
 
 const Nav = styled.nav`
-  width: 100%;
+  max-width: 1200px;
   height: 40px;
   text-align: left;
   line-height: 40px;

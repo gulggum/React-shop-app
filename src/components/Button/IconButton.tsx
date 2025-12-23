@@ -16,7 +16,7 @@ const IconButton = ({ iconName, onClick, count }: IconButtonProps) => {
         size="lg"
         style={{ position: "relative" }}
       />
-      {count && count > 0 && (
+      {count && count > 0 ? (
         <span
           style={{
             position: "absolute",
@@ -31,7 +31,7 @@ const IconButton = ({ iconName, onClick, count }: IconButtonProps) => {
         >
           {count}
         </span>
-      )}
+      ) : null}
     </StyleButton>
   );
 };

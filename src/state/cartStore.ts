@@ -7,6 +7,7 @@ export interface CartItem {
   price: number;
   title: string;
   quantity: number;
+  category: string;
 }
 //장바구니,상품추가,상품제거,수량증가,수량감소
 interface CartStore {

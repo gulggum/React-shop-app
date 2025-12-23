@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { fetchSingleProduct } from "../api/fetchProducts";
 import StartRating from "./StarRating";
 import { useCartStore } from "../state/cartStore";
+import { formatUSD } from "../utils/formatPrice";
 
 interface ProductDetailProps {
   category: string;
@@ -49,7 +50,7 @@ const ProductDetail = () => {
             {product?.rating.rate}
             <span>/ {product?.rating.count} 참여</span>
           </RatingEl>
-          <DetailPrice>${product?.price}</DetailPrice>
+          {product && <DetailPrice>{formatUSD(product?.price)}</DetailPrice>}
           <CartNavButton>
             <AddCart
               onClick={() => product && addCart(product)}

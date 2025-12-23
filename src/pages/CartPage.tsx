@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
-import { fetchProducts, Product } from "../api/fetchProducts";
 import { useCartStore } from "../state/cartStore";
+import { Link } from "react-router";
+import { formatUSD } from "../utils/formatPrice";
 
 const CartPage = () => {
   const items = useCartStore((state) => state.items);
@@ -12,6 +12,10 @@ const CartPage = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  const normalizeCategory = (category: string) => {
+    return category.includes("clothing") ? "clothing" : category;
+  };
 
   return (
     <CartContainer>
@@ -28,8 +32,15 @@ const CartPage = () => {
                   <ItemImage src={item.image} alt="이미지" />
                 </ItemImageWrapper>
                 <ItemDetail>
-                  <ItemName>{item.title} </ItemName>
-                  <ItemPrice>${item.price}</ItemPrice>
+                  <ItemName>
+                    <Link
+                      key={item.id}
+                      to={`/${normalizeCategory(item.category)}/${item.id}`}
+                    >
+                      {item.title}
+                    </Link>{" "}
+                  </ItemName>
+                  <ItemPrice>{formatUSD(item.price)}</ItemPrice>
                   <CountControl>
                     {" "}
                     <button onClick={() => decrease(item.id)}>-</button>
@@ -46,7 +57,9 @@ const CartPage = () => {
                 </ControlButtons>
               </CartItem>
             ))}
-            <TotalPrice>Total Price: {totalPrice}</TotalPrice>
+            <TotalPrice>
+              Total Price : <span> {formatUSD(totalPrice)}</span>
+            </TotalPrice>
           </ul>
         )}
       </CartWrap>
@@ -58,10 +71,14 @@ const CartContainer = styled.div`
   max-width: 1000px;
   box-sizing: border-box;
   padding: 1rem;
+  font-size: 1rem;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const PageTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: 500;
   border-bottom: 1px solid ${(props) => props.theme.text.base};
   padding-bottom: 20px;
@@ -100,13 +117,19 @@ const ItemImage = styled.img`
 
 const ItemName = styled.span`
   font-weight: 500;
+  font-size: 1.2em;
+  &:hover {
+    color: ${(props) => props.theme.hover};
+  }
 `;
-const ItemPrice = styled.span``;
+const ItemPrice = styled.span`
+  font-size: 1.1em;
+`;
 const CountControl = styled.div``;
 const QuantityButton = styled.span``;
 const CountPrice = styled.span`
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.5em;
   margin-top: 30px;
 `;
 
@@ -123,12 +146,16 @@ const TotalPrice = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100px;
-  background-color: ${(props) => props.theme.itemBg};
+  background-color: ${(props) => props.theme.hover};
   display: flex;
   justify-content: end;
   align-items: center;
   font-size: 2rem;
   font-weight: 500;
   padding-right: 20px;
+  span {
+    color: #a02727;
+    margin-left: 20px;
+  }
 `;
 export default CartPage;

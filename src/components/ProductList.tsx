@@ -3,6 +3,7 @@ import { fetchProducts } from "../api/fetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { normalizeCategory } from "../utils/normalizeCategory";
+import { formatUSD } from "../utils/formatPrice";
 
 interface ProductListProps {
   limit?: number;
@@ -33,7 +34,7 @@ const ProductList = ({ category, limit }: ProductListProps) => {
             </ImgWrap>
             <Info>
               <Title>{product.title}</Title>
-              <Price>$ {product.price}</Price>
+              <Price>{formatUSD(product.price)}</Price>
             </Info>
           </Link>
         </ProductBox>
