@@ -6,6 +6,7 @@ import ElectronicsPage from "../pages/ElectronicsPage";
 import MainLayout from "../pages/MainLayout";
 import NotFound from "../pages/NotFound";
 import ProductDetail from "../components/ProductsDetail";
+import CartPage from "../pages/CartPage";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
         {/* ┌> Fake Store API 오타  */}
         <Route path="/jewelery" element={<JewelryPage />} />
         <Route path="/electronics" element={<ElectronicsPage />} />
+        <Route path="/cart" element={<CartPage />} />
         {/* 존재하지 않는 경로시 연결 */}
         <Route path="*" element={<NotFound />}></Route>
       </Route>
