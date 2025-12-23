@@ -30,6 +30,7 @@ const MainLayout = () => {
 const Container = styled.main`
   max-width: 1200px;
   margin: 0 auto;
+  box-sizing: border-box;
 `;
 
 export default MainLayout;

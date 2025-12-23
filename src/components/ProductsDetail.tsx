@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import { fetchSingleProduct } from "../api/fetchProducts";
 import StartRating from "./StarRating";
-import Breadcrumb from "./Breadcrumb";
 
 interface ProductDetailProps {
   category: string;
@@ -65,18 +64,19 @@ const DetailContainer = styled.div`
   padding-top: 80px;
 `;
 const DetailWrapper = styled.div`
+  width: 100%;
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  box-sizing: border-box;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
 
 const DetailImageBox = styled.div`
-  width: 500px;
-  height: 500px;
+  height: 400px;
   background-color: orange;
   display: flex;
   justify-content: center;
@@ -84,12 +84,14 @@ const DetailImageBox = styled.div`
   background-color: #f2f2f2;
   border-radius: 5px;
   @media (max-width: 768px) {
-    margin: 0 auto;
   }
 `;
 
 const Detail_image = styled.img`
   width: 250px;
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 `;
 
 const DetailInfoBox = styled.div`

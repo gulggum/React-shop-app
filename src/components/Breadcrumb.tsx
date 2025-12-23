@@ -13,7 +13,6 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
     .split("/")
     .filter(Boolean) //빈 문자열 제거
     .filter((segment) => isNaN(Number(segment))); //id 숫자 제거
-  console.log("pathNames=" + pathNames);
 
   const displayNames = pathNames
     .map((p) => {
@@ -28,7 +27,7 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
     <Nav>
       <LinkStyle to={"/"}>Home</LinkStyle>
       {displayNames.map((name, index) => (
-        <span>
+        <span key={index}>
           <FontAwesomeIcon
             style={{ color: "gray", opacity: 0.4 }}
             icon={faChevronRight}
@@ -48,15 +47,15 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 };
 
 const Nav = styled.nav`
-  width: 1200px;
+  width: 100%;
   height: 40px;
   text-align: left;
   line-height: 40px;
-  box-sizing: border-box;
   font-size: 13px;
   margin: 0 auto;
   margin-top: 60px;
   padding: 0 10px;
+  box-sizing: border-box;
 `;
 const LinkStyle = styled(Link)`
   &:hover {
