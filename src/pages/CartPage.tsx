@@ -58,7 +58,8 @@ const CartPage = () => {
             </CartItem>
           ))}
           <TotalPrice>
-            Total Price : <span> {formatUSD(totalPrice)}</span>
+            <span>Total Price:</span>
+            <span> {formatUSD(totalPrice)}</span>
             <BuyingButton onClick={onBuying}>Buying</BuyingButton>
           </TotalPrice>
         </CartWrap>
@@ -211,10 +212,14 @@ const TotalPrice = styled.div`
   align-items: center;
   font-size: 2em;
   font-weight: 500;
-  padding-right: 20px;
-  span {
+  padding: 10px;
+  span:first-child {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  span:not(:first-child) {
     color: #a02727;
-    margin-left: 20px;
+    margin: 0 10px;
   }
 `;
 
@@ -224,8 +229,6 @@ const BuyingButton = styled.button`
   color: white;
   font-weight: 600;
   border-radius: 5px;
-  margin-right: 10px;
-  margin-left: 40px;
   font-size: 0.7em;
   &:hover {
     background-color: #400bb4;
