@@ -72,7 +72,7 @@ const DetailContainer = styled.div`
   max-width: 1200px;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 10px;
 `;
 const DetailWrapper = styled.div`
   width: 100%;
@@ -88,11 +88,10 @@ const DetailWrapper = styled.div`
 
 const DetailImageBox = styled.div`
   height: 400px;
-  background-color: orange;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: ${(props) => props.theme.itemBg};
   border-radius: 5px;
   @media (max-width: 768px) {
   }
@@ -146,14 +145,14 @@ const AddCart = styled.button`
 `;
 const GoToCart = styled.button`
   padding: 10px 15px;
-  border: 1px solid ${(props) => props.theme.text.title};
+  border: 1px solid ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.bg};
-  color: ${(props) => props.theme.text.title};
+  color: ${(props) => props.theme.text};
   font-weight: 500;
   border-radius: 5px;
   &:hover {
     background-color: ${(props) => props.theme.hover};
-    color: ${(props) => props.theme.text.title};
+    color: ${(props) => props.theme.text};
     transition: all 0.4s ease;
   }
 `;

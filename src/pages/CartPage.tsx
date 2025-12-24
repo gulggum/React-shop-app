@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useCartStore } from "../state/cartStore";
 import { Link } from "react-router";
 import { formatUSD } from "../utils/formatPrice";
+import { normalizeCategory } from "../utils/getCategories";
 
 const CartPage = () => {
   const items = useCartStore((state) => state.items);
@@ -12,10 +13,6 @@ const CartPage = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-
-  const normalizeCategory = (category: string) => {
-    return category.includes("clothing") ? "clothing" : category;
-  };
 
   return (
     <CartContainer>
@@ -80,7 +77,7 @@ const CartContainer = styled.div`
 const PageTitle = styled.h2`
   font-size: 2em;
   font-weight: 500;
-  border-bottom: 1px solid ${(props) => props.theme.text.base};
+  border-bottom: 1px solid ${(props) => props.theme.text};
   padding-bottom: 20px;
 `;
 const CartWrap = styled.ul`

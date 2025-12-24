@@ -57,7 +57,7 @@ const Title = styled.h2`
   font-size: 2.5em;
   font-weight: 500;
   margin-bottom: 1em;
-  border-bottom: 1px solid ${(props) => props.theme.hover};
+  border-bottom: 1px solid ${(props) => props.theme.line};
 `;
 
 export default Home;

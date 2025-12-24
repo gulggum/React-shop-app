@@ -1,31 +1,22 @@
 export interface ThemeColorTypes {
   bg: string;
+  line: string;
   itemBg: string;
-  text: {
-    title: string;
-    sub: string;
-    base: string;
-  };
+  text: string;
   hover: string;
 }
 
 export const lightTheme = {
   bg: "#F9F8F6",
+  line: "#c9b59c",
   itemBg: "#F2F2F2",
-  text: {
-    title: "#222",
-    sub: "#555",
-    base: "#999",
-  },
-  hover: "#c9b59c",
+  text: "#222",
+  hover: "#E6D8C3",
 };
 export const darkTheme = {
   bg: "#1B211A",
+  line: "#c9b59c",
   itemBg: "#555",
-  text: {
-    title: "#F9F8F6",
-    sub: "#cfcfcf",
-    base: "#999",
-  },
-  hover: "#c9b59c",
+  text: "#F9F8F6",
+  hover: "#E6D8C3",
 };

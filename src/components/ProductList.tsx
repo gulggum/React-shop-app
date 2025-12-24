@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { fetchProducts } from "../api/fetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
-import { normalizeCategory } from "../utils/normalizeCategory";
+import { normalizeCategory } from "../utils/getCategories";
 import { formatUSD } from "../utils/formatPrice";
 
 interface ProductListProps {

@@ -26,7 +26,7 @@ const Title404 = styled.h2`
   font-weight: 700;
   margin-bottom: 1em;
   margin-bottom: 0;
-  color: ${(props) => props.theme.text.title};
+  color: ${(props) => props.theme.text};
 `;
 
 const Text404 = styled.p`

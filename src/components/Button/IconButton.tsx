@@ -46,6 +46,6 @@ const StyleButton = styled.button`
     background-color: ${(props) => props.theme.hover};
     transform: 0.5s ease;
   }
-  color: ${(props) => props.theme.text.title};
+  color: ${(props) => props.theme.text};
 `;
 export default IconButton;

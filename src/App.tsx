@@ -1,4 +1,3 @@
-import Home from "./pages/Home";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { useThemeStore } from "./state/theme.store";
 import { BrowserRouter } from "react-router-dom";
@@ -48,7 +47,7 @@ footer, header, hgroup, menu, nav, section {
 body {    
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: ${(props) => props.theme.bg};
-    color: ${(props) => props.theme.text.title};
+    color: ${(props) => props.theme.text};
 	line-height: 1.5;
    font-size:1rem;
     position: relative;
