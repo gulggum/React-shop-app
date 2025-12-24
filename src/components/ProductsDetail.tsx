@@ -70,7 +70,7 @@ const ProductDetail = () => {
 
 const DetailContainer = styled.div`
   max-width: 1200px;
-  height: 100vh;
+  height: auto;
   margin: 0 auto;
   padding-top: 10px;
 `;

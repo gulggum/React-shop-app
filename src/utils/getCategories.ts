@@ -1,7 +1,12 @@
 import { Product } from "../api/fetchProducts";
 
+//Link 경로 category사용시 활용
+export const normalizeCategory = (cat: string) =>
+  cat.includes("clothing") ? "clothing" : cat;
+
+//Nav에 이용할 카테고리 제작
 const getCategories = (products: Product[]) => {
-  //reducer로 카테고리별 배열 만들기
+  //reducer로 카테고리 배열 만들기
   const categoriesReduce = products?.reduce<string[]>((acc, curr) => {
     if (!acc.includes(curr.category)) {
       acc.push(curr.category);

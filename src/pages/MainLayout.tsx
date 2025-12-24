@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Breadcrumb from "../components/Breadcrumb";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSingleProduct } from "../api/fetchProducts";
+import FooterArea from "../components/Footer";
 
 const MainLayout = () => {
   const { id } = useParams();
@@ -23,6 +24,7 @@ const MainLayout = () => {
       <Container>
         <Outlet />
       </Container>
+      <FooterArea />
     </>
   );
 };
@@ -31,6 +33,7 @@ const Container = styled.main`
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
+  height: auto;
 `;
 
 export default MainLayout;
