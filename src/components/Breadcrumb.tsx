@@ -48,14 +48,18 @@ const Breadcrumb = ({ productTitle }: BreadcrumbProps) => {
 
 const Nav = styled.nav`
   max-width: 1200px;
+  width: 100%;
   height: 40px;
   text-align: left;
   line-height: 40px;
   font-size: 13px;
   margin: 0 auto;
   margin-top: 60px;
-  padding: 0 10px;
+  padding: 0 20px;
   box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const LinkStyle = styled(Link)`
   &:hover {

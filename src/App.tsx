@@ -45,6 +45,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {    
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: ${(props) => props.theme.bg};
     color: ${(props) => props.theme.text};

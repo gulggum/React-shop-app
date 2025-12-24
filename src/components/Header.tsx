@@ -71,7 +71,7 @@ const HeaderArea = () => {
               onChange={(e) => setKeyword(e.target.value)}
               value={keyword}
               type="text"
-              placeholder="검색"
+              placeholder="Finding the product..."
             />
             {keyword && (
               <Search>
@@ -114,7 +114,7 @@ const HeaderArea = () => {
               onChange={(e) => setKeyword(e.target.value)}
               value={keyword}
               type="text"
-              placeholder="검색"
+              placeholder="Finding the product..."
               $showInput={showInput}
             />
             {keyword && (
