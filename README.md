@@ -1,6 +1,6 @@
 # React Shop App 🛍️ [React 쇼핑몰 프로젝트 클론코딩]
 
-🔗 배포 주소: https://your-project-name.vercel.app
+🔗 배포 주소: https://react-shop-app-iota.vercel.app/
 
 ✅ 프로젝트 완료
 📅 개발 기간: 2025/12/15 ~ 2025/12/24
