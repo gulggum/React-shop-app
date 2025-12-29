@@ -1,6 +1,7 @@
-# React Shop App 🛍️ [React 쇼핑몰 프로젝트]
+# React Shop App 🛍️ [React 쇼핑몰 프로젝트 클론코딩]
 
-🚧 현재 개발 중... 2025/12/15 ~
+✅ 프로젝트 완료
+📅 개발 기간: 2025/12/15 ~ 2025/12/24
 
 ## 프로젝트 소개
 
@@ -45,6 +46,7 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 
 ## 프로젝트 구조 (주요 폴더)
 
+- `src/api/` : 외부 API 통신 로직 (상품 목록/상품 상세 데이터 fetch)
 - `src/components/` : 재사용 가능한 UI 컴포넌트
 - `src/pages/` : 페이지 단위 컴포넌트
 - `src/state/` : Zustand 전역 상태 관리
