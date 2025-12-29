@@ -1,5 +1,7 @@
 # React Shop App 🛍️ [React 쇼핑몰 프로젝트 클론코딩]
 
+🔗 배포 주소: https://your-project-name.vercel.app
+
 ✅ 프로젝트 완료
 📅 개발 기간: 2025/12/15 ~ 2025/12/24
 
@@ -17,6 +19,7 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 - Styled-components
 - Zustand (상태 관리 예정)
 - FontAwesome
+- Vercel (배포)
 
 ## 현재 구현 기능
 
@@ -53,3 +56,9 @@ React + Vite + TypeScript 기반 쇼핑몰 프로젝트
 - `src/pages/` : 페이지 단위 컴포넌트
 - `src/state/` : Zustand 전역 상태 관리
 - `src/utils/` : 유틸 함수 및 데이터 가공
+
+## 배포
+
+- Vercel을 사용하여 배포
+- GitHub 저장소 연동 후 자동 배포 (CI/CD)
+- main 브랜치 push 시 자동 빌드 및 배포
